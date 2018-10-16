@@ -32,4 +32,4 @@ cumulus@switch:~$ sudo systemctl restart switchd.service
 
 ! You do not have to restart the `switchd` service when you update a network interface configuration (that is, edit `/etc/network/interfaces`).
 
-!! Restarting `switchd` causes all network ports to reset, in addition to resetting the switch hardware configuration.
+!! Restarting `switchd` causes all network ports to reset in addition to resetting the switch hardware configuration.
