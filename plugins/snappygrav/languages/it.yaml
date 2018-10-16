@@ -1,0 +1,107 @@
+# Italiano
+PLUGIN_SNAPPYGRAV:
+  BTN_PLUGIN: Testo pulsante plugin
+  ICN_PLUGIN: Icona pulsante plugin
+  WKHTMLTOPDF: Wkhtmltopdf
+  WKHTMLTOPDF_ABSOLUTE_POS: Posizionamento sotto
+  WKHTMLTOPDF_PLUGIN: Plugin
+  WKHTMLTOPDF_OS: Sistema Operativo
+  WKHTMLTOPDF_PATH_RULES: 'Regole di percorso:<br/>- parziale, se <b>Posizionamento sotto</b> prevede <b>Plugin</b> (es. <i>vendor/h4cc/wkhtmltopdf-i386/bin/wkhtmltopdf-i386</i>)<br/>- assoluto, se <b>Posizionamento sotto</b> prevede <b>Sistema Operativo</b> (es. <i>/usr/local/bin/wkhtmltopdf</i>)<br/>In entrambi i casi, quando <b>Percorso</b> è lasciato vuoto, i rispettivi esempi sono usati come valori di default.'
+  WKHTMLTOPDF_PATH: Percorso
+  WKHTMLTOPDF_PATH_HELP: Percorso del programma Wkhtmltopdf
+  DATE_FORMAT: Formato data
+  SHORT: Breve
+  LONG: Lungo
+  DEFAULT_TYPE: Tipo documento predefinito
+  AZW3: Azw3
+  EPUB: ePub
+  PDF: Pdf
+  BASICS: Fondamentali
+  USE_BUILT_IN_CSS: Usa CSS interno
+  PREFACE: Prefazione
+  PREFACE_TITLE: Stato del titolo
+  PREFACE_TITLE_HELP: Visualizza il titolo della pagina. Utile se non incluso nella stessa pagina.
+  PREFACE_AUTHOR: Stato dell'autore
+  PREFACE_AUTHOR_HELP: Visualizza l'autore della pagina. Utile se non incluso nella stessa pagina.
+  PREFACE_DATE: Stato della data
+  PREFACE_DATE_HELP: Visualizza la data della pagina. Utile se non inclusa nella stessa pagina.
+  BREADCRUMBS: Breadcrumbs
+  BREADCRUMBS_ENABLED: Stato
+  BREADCRUMBS_ENABLED_HELP: Consente la visualizzazione della posizione
+  BREADCRUMBS_HELP: Stampa il percorso in testa al documento
+  BREADCRUMBS_LINK: Collegamento breadcrumbs
+  BREADCRUMBS_LINK_HELP: Ogni singola posizione si collega alla pagina online originale.
+  BRANCH: Ramo
+  BRANCH_ENABLED: Stato top-down
+  BRANCH_ENABLED_HELP: Aggiunge tutte le pagine discendenti dalla pagina corrente. La selezione viene effettuata solo dall'alto verso il basso.
+  PAGE_BREAK: Interruzione di pagina
+  PAGE_BREAK_HELP: Aggiunge un'interruzione di pagina prima di una pagina
+  JQUERY_CONFIRM: jQuery Confirm v3
+  THEME: Tema
+  LIGHT: Light
+  DARK: Dark
+  MODERN: Modern
+  SUPERVAN: Supervan
+  MATERIAL: Material
+  BOOTSTRAP: Bootstrap
+  BTN_EXPORT: Testo del pulsante di esportazione
+  BTN_EXPORT_COLOR: Colore del pulsante di esportazione
+  BTN_CANCEL: Tasto del pulsante di annullamento
+  BTN_CANCEL_COLOR: Colore del pulsante di annullamento
+  DEFAULT: Predefinito
+  BLUE: Blu
+  GREEN: Verde
+  RED: Rosso
+  ORANGE: Arancione
+  PURPLE: Viola
+  DARK: Nero
+  GRAY: Grigio
+  DOCUMENT_TYPE: Tipo documento
+  OPTIONS: Opzioni
+  AN_ERROR_OCCURRED: Si è verificato un errore
+  CREATION_FAILED: Creazione non riuscita
+  NOT_YET_MANAGED: non ancora gestito!
+  WAIT_FOR_FUTURE_UPDATES: Attendere i futuri aggiornamenti.
+  INVALID_SECURITY_TOKEN_TITLE: Token di sicurezza non valido
+  INVALID_SECURITY_TOKEN_TEXT: "Aggiorna la pagina con <b>F5</b> e riprova"
+  YOUR_DOCUMENT_IS_READY_FOR: Il file %1 è pronto per essere...
+  COLLECT_BRANCH: Includere rami dipendenti
+  COMPLETE_EXPORT: Esportazione completa del documento
+  SINGLE_OR_BRANCH_EXPORT: Esportazione singola o ramificata
+  BUTTON_EXPORT_TEXT: Crea
+  BUTTON_CANCEL_TEXT: Annulla
+  BUTTON_INLINE_TEXT: Letto in linea
+  BUTTON_ATTACH_TEXT: Scaricato
+  SLUG_BLOG: Cartella blog
+  SLUG_BLOG_HELP: Nome della cartella blog senza barra (né prima né dopo)
+  MONOCHROME_PRINTOUT: Stampa in bianco e nero
+  MONOCHROME_PRINTOUT_HELP: PDF verrà generato in scala di grigi se è vero
+  BOTTOM_MARGIN: Margine inferiore
+  BOTTOM_MARGIN_HELP: Imposta il margine inferiore della pagina (predefinito 10 mm)
+  LEFT_MARGIN: Margine sinistro
+  LEFT_MARGIN_HELP: Imposta il margine sinistro della pagina (predefinito 10 mm)
+  RIGHT_MARGIN: Margine destro
+  RIGHT_MARGIN_HELP: Imposta il margine destro della pagina (predefinito 10 mm)
+  TOP_MARGIN: Margine superiore
+  TOP_MARGIN_HELP: Imposta il margine superiore della pagina (predefinito 10 mm)
+  PAGE_ORIENTATION: Orientamento pagina
+  PAGE_ORIENTATION_HELP: Imposta orientamento orizzontale o verticale
+  LANDSCAPE: Orizzontale
+  PORTRAIT: Verticale
+  PAGE_SIZE: Dimensioni della pagina
+  PAGE_SIZE_HELP: Imposta il formato della carta a: A4, Lettera, ecc.
+  EXECUTIVE: Executive
+  FOLIO: Folio
+  LEDGER: Ledger
+  LEGAL: Legale
+  LETTER: Lettera
+  TABLOID: Tabloid (formato ridotto)
+  PAGE_SIZE_HELP: Imposta il formato della carta in: A4, Lettera, ecc.
+  DOCUMENT_TITLE: Titolo del documento
+  DOCUMENT_TITLE_HELP: Mette il titolo fra le proprietà nel documento PDF
+  ZOOM_FACTOR: Fattore di zoom
+  ZOOM_FACTOR_HELP: Usa questo fattore di zoom (predefinito 1)
+  PRINT_MEDIA_TYPE: Print Media Type
+  PRINT_MEDIA_TYPE_HELP: Usa il supporto di stampa anziché lo schermo (impostazione predefinita). La cartella snappygrav/assets/css/ contiene il file paper.css in cui è possibile inserire le proprietà degli elementi in base al @media rule desiderato.
+  SET_TIME_LIMIT: Imposta il limite di tempo
+  SET_TIME_LIMIT_HELP: Limita il tempo massimo di esecuzione
