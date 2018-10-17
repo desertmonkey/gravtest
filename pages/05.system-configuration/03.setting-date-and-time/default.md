@@ -348,6 +348,7 @@ cumulus@switch:~$ sudo systemctl restart ptp41.service phc2sys.service
 ```
 cumulus@switch:~$ sudo systemctl enable ptp41.service phc2sys.service
 ```
+
 ### Example Configuration
 
 In the following example, the boundary clock on the switch receives time from Master 1 (the grandmaster) on PTP slave port swp3s0, sets its clock and passes the time down through PTP master ports swp3s1, swp3s2, and swp3s3 to the hosts that receive the time.
