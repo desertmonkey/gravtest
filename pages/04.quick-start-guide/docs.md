@@ -1,5 +1,6 @@
 ---
 title: 'Quick Start Guide'
+published: true
 date: '22:09 02-10-2018'
 twitterenable: true
 twittercardoptions: summary
