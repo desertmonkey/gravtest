@@ -270,11 +270,7 @@ If the state is not _Active_, or the alternate configuration file does not appea
 
 — then it is likely that a mistake was made. In this case, correct the mistake and rerun the three commands above to verify.
 
-<ac:structured-macro ac:macro-id="c1cd5602-8ab4-4224-b2d3-c757a5653bda" ac:name="note" ac:schema-version="1"><ac:rich-text-body>
-
-With this unit file override present, changing NTP settings using NCLU do not take effect until the DHCP script regenerates the alternate NTP configuration file.
-
-</ac:rich-text-body></ac:structured-macro>
+! With this unit file override present, changing NTP settings using NCLU do not take effect until the DHCP script regenerates the alternate NTP configuration file.
 
 ## <span>Related Information</span>
 
