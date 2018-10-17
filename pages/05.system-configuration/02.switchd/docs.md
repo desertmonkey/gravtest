@@ -21,6 +21,7 @@ restaurant:
     acceptsReservations: 'yes'
     priceRange: $
 facebookenable: true
+cache_enable: false
 ---
 
 `switchd` is the daemon at the heart of Cumulus Linux. It communicates between the switch and Cumulus Linux, and all the applications running on Cumulus Linux.
