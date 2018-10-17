@@ -36,7 +36,7 @@ You can use one of two methods to set the time zone on the switch:
 *   Use the guided wizard.
 
 
-! With this unit file override present, changing NTP settings using NCLU do not take effect until the DHCP script regenerates the alternate NTP configuration file.
+!! With this unit file override present, changing NTP settings using NCLU do not take effect until the DHCP script regenerates the alternate NTP configuration file.
 
 ## Related Information
 
