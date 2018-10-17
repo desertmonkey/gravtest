@@ -1,5 +1,6 @@
 ---
 title: 'Introducing Cumulus Linux'
+published: true
 twitterenable: true
 twittercardoptions: summary
 articleenabled: false
