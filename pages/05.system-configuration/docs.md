@@ -1,5 +1,6 @@
 ---
 title: 'System Configuration'
+published: true
 date: '20:28 10-10-2018'
 twitterenable: true
 twittercardoptions: summary
