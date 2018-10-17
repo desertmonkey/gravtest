@@ -1,5 +1,6 @@
 ---
 title: 'Restart switchd'
+published: true
 date: '22:15 10-10-2018'
 twitterenable: true
 twittercardoptions: summary
