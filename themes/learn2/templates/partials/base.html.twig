@@ -49,6 +49,8 @@
     {% endblock %}
 </head>
 <body class="searchbox-hidden {{ page.header.body_classes }}" data-url="{{ page.route }}">
+
+
     {% block sidebar %}
     <nav id="sidebar">
         <div id="header-wrapper">
@@ -76,7 +78,6 @@
 					<li style="float:left; position:relative;"><a href="https://cumulusnetworks.com/" style="padding:3px 20px 10px 20px; border-left:1px solid #fff; color:#fff; line-height:26px;">Back to Cumulus Networks</a></li>
 				</ul>
 	       	</div>
-
 
         <div class="padding highlightable">
             <a href="#" id="sidebar-toggle" data-sidebar-toggle><i class="fa fa-2x fa-bars"></i></a>
@@ -109,6 +110,7 @@
         </div>
         {% block navigation %}{% endblock %}
 
+    </section>
 
     <footer>
 	<section class="footer__section footer__section--top">
@@ -119,7 +121,6 @@
 						<img src="https://cumulusnetworks.com/static/images/shared/cumulus-networks-logo-white.svg">
 						© <script type="text/javascript">document.write(new Date().getFullYear());</script> Cumulus Networks.<br>
 						Bringing web-scale networking to the enterprise cloud.<br><br>
-						Site by <a href="//unomena.com/" target="_blank">Unomena</a>.<br>
 					</div>
 				</div>
 				<div class="col-sm-8 col-md-9">
@@ -191,7 +192,7 @@
 	</section>
 </footer>
 
-    </section>
+
 
     {% endblock %}
     {% block analytics %}
