@@ -186,11 +186,22 @@ cumulus@switch:~$ net commit
 
 You can change the source interface that NTP uses if you want to use an interface other than eth0, which is the default. 
 
-<ac:structured-macro ac:macro-id="b49e9ec3-18f7-45a1-bee6-923231693da7" ac:name="code" ac:schema-version="1"><ac:parameter ac:name="language">text</ac:parameter><ac:plain-text-body></ac:plain-text-body></ac:structured-macro>
+```
+cumulus@switch:~$ net add time ntp source swp10
+cumulus@switch:~$ net pending
+cumulus@switch:~$ net commit
+```
 
 These commands create the following configuration snippet in the `ntp.conf` file:
 
-<ac:structured-macro ac:macro-id="26d31049-13be-443a-9cc9-25cd4106e457" ac:name="code" ac:schema-version="1"><ac:parameter ac:name="language">text</ac:parameter><ac:plain-text-body></ac:plain-text-body></ac:structured-macro>
+```
+...
+  
+# Specify interfaces
+interface listen swp10
+ 
+...
+```
 
 ## NTP Default Configuration
 
