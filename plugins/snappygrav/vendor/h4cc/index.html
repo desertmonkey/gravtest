@@ -1,0 +1,769 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Monitoring &mdash; Cumulus Networks December 13, 2013 documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="../../_static/cumulus.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+    <script type="text/javascript">
+    var DOCUMENTATION_OPTIONS = {
+    URL_ROOT:    '../../',
+    VERSION:     'December 13, 2013',
+    COLLAPSE_MODINDEX: false,
+    FILE_SUFFIX: '.html',
+    HAS_SOURCE:  true
+    };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            //Nav
+            $('.nav li').hover(
+                function () {
+                    $(this).addClass('open_drop');
+                    $(this).find('ul:first').show();
+                },
+                function () {
+                    $(this).removeClass('open_drop');
+                    $(this).find('ul:first').hide();
+                }
+            );
+        });
+    </script>
+    <link rel="shortcut icon" href="../../_static/cumulus_favicon.ico"/>
+    <link rel="top" title="Cumulus Networks December 13, 2013 documentation" href="../../index.html" />
+    <link rel="next" title="Network Troubleshooting" href="../network-diags/index.html" />
+    <link rel="prev" title="Netfilter (ACLs)" href="../netfilter/index.html" /> 
+</head>
+<body>
+<div id="wrap">
+        <div id="header">
+            <div class="container">
+                <div class="span12">
+                    <div class="span5 push">
+                        <h1><a href="/">Cumulus Networks</a></h1>
+                        <a href="javascript: void(0);" class="mobi_handle"></a>
+                    </div>
+                    <div class="span7">
+                        <ul class="actions">
+                            <li><a href="/downloads/">Downloads</a></li>
+                            <li><a href="/profile/">Profile</a></li>
+                            <li><a href="/accounts/logout/">Sign out</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div><!--/Header-->
+        <div id="nav">
+            <div class="container">
+                <ul class="nav">
+                    <li class="single"><a href="/rethink_network/" >Rethink Networking</a></li>
+                    <li>
+                        <a href="javascript: void(0);" >Product</a>
+                        <ul>
+                            <li><a href="/product/overview/">Overview</a></li>
+                            <li><a href="/product/architecture/">Architecture</a></li>
+                            <li><a href="/product/evaluate/dispatcher/">Evaluate</a></li>
+                            <li><a href="/product/open-approach/">Open Approach</a></li>
+                            <li><a href="/product/customers/">Customers</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript: void(0);" >Partners</a>
+                        <ul>
+                            <li><a href="/partners/become-a-partner/">Become a Partner</a></li>
+                            <li><a href="/partners/technology-partners/">Technology Partners</a></li>
+                            <li><a href="/partners/resellers-and-distributors/">Resellers &amp; Distributors</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript: void(0);" >News &amp; Events</a>
+                        <ul>
+                            <li><a href="/analyst_coverage/">Analyst Coverage</a></li>
+                            <li><a href="/events/">Events</a></li>
+                            <li><a href="/media_coverage/">Media Coverage</a></li>
+                            <li><a href="/press_releases/">Press Releases</a></li>
+                            <li><a href="/videos/">Videos</a></li>
+                            <li><a href="/blog/">Blog</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript: void(0);">Support</a>
+                        <ul>
+                            <li><a href="/support/overview/">Overview</a></li>
+                            <li><a href="/support/faq/">FAQs</a></li>
+                            <li><a href="/support/hcl/">Hardware Compatibility List</a></li>
+                            <li><a href="/docs/" class="lock">Technical Documentation <span></span></a></li>
+                            <li><a href="/support/" class="lock">Online Support Portal <span></span></a></li>
+                            <li><a href="/support/my_support_requests/" class="lock">My Support Requests <span></span></a></li>
+                            <li><a href="/support/new_support_request/" class="lock">Submit a Request <span></span></a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript: void(0);" >Company</a>
+                        <ul>
+                            <li><a href="/company/about/">About Cumulus</a></li>
+                            <li><a href="/careers/">Careers</a></li>
+                            <li><a href="/team/">Our Team</a></li>
+                            <li><a href="/investors/">Investors</a></li>
+                            <li><a href="/contact/">Contact</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form action="/search-results/" id="frmSearch"> 
+                  <div> 
+                    <input type="hidden" name="cx" value="partner-pub-002892611423842813337:6ugck8dxsg8" /> 
+                    <input type="hidden" name="cof" value="FORID:10" /> 
+                    <input type="hidden" name="ie" value="ISO-8859-1" /> 
+                    <input type="text" name="q" class="text"  /> 
+                    <input type="submit" name="sa" class="submit"  /> 
+                  </div> 
+                </form>
+                <script type="text/javascript" src="http://www.google.com/cse/brand?form=frmSearch&amp;lang=en"></script>
+                <div class="clear"></div>
+            </div>
+        </div>
+    
+    <div id="main">
+        <div class="container">
+            <div class="span12 content">
+                <h1><a href="/docs/index.html">Technical Documentation</a></h1>
+    <div class="related">
+        <ul>
+            <li>
+                <a href="../../genindex.html" title="General Index"
+                accesskey="I">index</a></li>
+            <li>
+                <a href="../network-diags/index.html" title="Network Troubleshooting"
+                accesskey="N">next</a></li>
+            <li>
+                <a href="../netfilter/index.html" title="Netfilter (ACLs)"
+                accesskey="P">previous</a></li> 
+        </ul>
+    </div>
+                <div class="docs_search">
+                    <div id="searchbox" style="display: none">
+                    <form class="search" action="../../search.html" method="get">
+                        <input type="text" name="q" placeholder="Quick Search" />
+                        <input type="submit" value="Go" />
+                        <input type="hidden" name="check_keywords" value="yes" />
+                        <input type="hidden" name="area" value="default" />
+                    </form>
+                    </div>
+                    <script type="text/javascript">$('#searchbox').show(0);</script>
+                </div>
+                <div class="docs">
+                    
+  <div class="section" id="monitoring">
+<span id="index-0"></span><h1>Monitoring<a class="headerlink" href="#monitoring" title="Permalink to this headline">¶</a></h1>
+<p>This chapter describes how to monitor and troubleshoot Cumulus Linux.</p>
+<div class="section" id="contents">
+<h2>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference internal" href="#commands">Commands</a></li>
+<li><a class="reference internal" href="#setting-date-and-time">Setting Date and Time</a></li>
+<li><a class="reference internal" href="#using-the-serial-console">Using the Serial Console</a></li>
+<li><a class="reference internal" href="#setting-time-using-ntp">Setting Time Using NTP</a></li>
+<li><a class="reference internal" href="#monitoring-interfaces-using-ethtool">Monitoring Interfaces Using ethtool</a></li>
+<li><a class="reference internal" href="#monitoring-switch-port-interfaces-using-cl-sfputil">Monitoring Switch Port Interfaces Using cl-sfputil</a></li>
+<li><a class="reference internal" href="#diagnostics-using-cl-support">Diagnostics Using cl-support</a></li>
+<li><a class="reference internal" href="#routing-diagnostics-using-cl-resource-query">Routing Diagnostics Using cl-resource-query</a></li>
+<li><a class="reference internal" href="#monitoring-system-hardware">Monitoring System Hardware</a></li>
+<li><a class="reference internal" href="#configuration-files">Configuration Files</a></li>
+<li><a class="reference internal" href="#useful-links">Useful Links</a></li>
+</ul>
+</div>
+<div class="section" id="commands">
+<h2>Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>cl-sfputil</li>
+<li>cl-support</li>
+<li>date</li>
+<li>dpkg-reconfigure tzdata</li>
+<li>ethtool</li>
+<li>fw_setenv</li>
+<li>hwclock</li>
+<li>ntpd (daemon)</li>
+<li>ntpq</li>
+<li>sensors</li>
+<li>smond</li>
+</ul>
+</div>
+<div class="section" id="setting-date-and-time">
+<span id="index-1"></span><h2>Setting Date and Time<a class="headerlink" href="#setting-date-and-time" title="Permalink to this headline">¶</a></h2>
+<p>Setting the time zone, date and time requires root privileges.</p>
+<div class="section" id="setting-the-time-zone">
+<h3>Setting the Time Zone<a class="headerlink" href="#setting-the-time-zone" title="Permalink to this headline">¶</a></h3>
+<p>To see the current time zone, list the contents of <tt class="docutils literal"><span class="pre">/etc/timezone</span></tt>:</p>
+<div class="highlight-python"><pre>root@switch:~# cat /etc/timezone
+US/Eastern</pre>
+</div>
+<p>To set the time zone, run <tt class="docutils literal"><span class="pre">dpkg-reconfigure</span> <span class="pre">tzdata</span></tt> as root:</p>
+<div class="highlight-python"><pre>root@switch:~# dpkg-reconfigure tzdata</pre>
+</div>
+<p>Then navigate the menus to enable the time zone you want. The following example
+selects the <tt class="docutils literal"><span class="pre">US/Pacific</span></tt> time zone:</p>
+<div class="highlight-python"><pre>root@switch:~# dpkg-reconfigure tzdata
+
+Configuring tzdata
+------------------
+
+Please select the geographic area in which you live. Subsequent configuration
+questions will narrow this down by presenting a list of cities, representing
+the time zones in which they are located.
+
+  1. Africa      4. Australia  7. Atlantic  10. Pacific  13. Etc
+  2. America     5. Arctic     8. Europe    11. SystemV
+  3. Antarctica  6. Asia       9. Indian    12. US
+Geographic area: 12
+
+Please select the city or region corresponding to your time zone.
+
+  1. Alaska    4. Central  7. Indiana-Starke  10. Pacific
+  2. Aleutian  5. Eastern  8. Michigan        11. Pacific-New
+  3. Arizona   6. Hawaii   9. Mountain        12. Samoa
+Time zone: 10
+
+Current default time zone: 'US/Pacific'
+Local time is now:      Mon Jun 17 09:27:45 PDT 2013.
+Universal Time is now:  Mon Jun 17 16:27:45 UTC 2013.</pre>
+</div>
+<p>For more info see the Debian <a class="reference external" href="http://www.debian.org/doc/manuals/system-administrator/ch-sysadmin-time.html">System Administrator&#8217;s Manual &#8211; Time</a>.</p>
+</div>
+<div class="section" id="setting-the-date-and-time">
+<h3>Setting the Date and Time<a class="headerlink" href="#setting-the-date-and-time" title="Permalink to this headline">¶</a></h3>
+<p>The switch contains a battery backed hardware clock that maintains the time
+while the switch is powered off and in between reboots. When the switch is
+running, the Cumulus Linux operating system maintains its own software clock.</p>
+<p>During boot up, the time from the hardware clock is copied into the operating
+system&#8217;s software clock. The software clock is then used for all timekeeping
+responsibilities. During system shutdown the software clock is copied back to
+the battery backed hardware clock.</p>
+<p>You can set the date and time on the software clock using the <tt class="docutils literal"><span class="pre">date</span></tt>
+command. See man page <tt class="docutils literal"><span class="pre">date(1)</span></tt> for details.</p>
+<p>You can set the date and time on the hardware clock using the <tt class="docutils literal"><span class="pre">hwclock</span></tt>
+command. See man page <tt class="docutils literal"><span class="pre">hwclock(8)</span></tt> for details.</p>
+<p>A good overview of the software and hardware clocks can be found in
+the Debian <a class="reference external" href="http://www.debian.org/doc/manuals/system-administrator/ch-sysadmin-time.html">System Administrator&#8217;s Manual &#8211; Time</a>,
+specifically the section <a class="reference external" href="http://www.debian.org/doc/manuals/system-administrator/ch-sysadmin-time.html#s16.2">Setting and showing hardware clock</a>.</p>
+</div>
+</div>
+<div class="section" id="using-the-serial-console">
+<span id="index-2"></span><h2>Using the Serial Console<a class="headerlink" href="#using-the-serial-console" title="Permalink to this headline">¶</a></h2>
+<p>The serial console can be a useful tool for debugging issues, especially when
+you find yourself rebooting the switch often or if you don&#8217;t have a reliable
+network connection.</p>
+<p>The U-Boot environment variable <tt class="docutils literal"><span class="pre">baudrate</span></tt> identifies the baud rate of the
+serial console. The default serial console baud rate is 115200, which is the
+baud rate <a class="reference external" href="http://onie.github.io/onie/">ONIE</a> uses.</p>
+<p>To change the <tt class="docutils literal"><span class="pre">baudrate</span></tt> variable, use the <tt class="docutils literal"><span class="pre">fw_setenv</span></tt> command:</p>
+<div class="highlight-python"><pre>root@switch:~# fw_setenv baudrate 9600
+Updating environment variable: `baudrate'
+Proceed with update [N/y]? y</pre>
+</div>
+<p>A reboot is required for the <tt class="docutils literal"><span class="pre">baudrate</span></tt> change to take effect.</p>
+<p>The valid values for <tt class="docutils literal"><span class="pre">baudrate</span></tt> are:</p>
+<ul class="simple">
+<li>300</li>
+<li>600</li>
+<li>1200</li>
+<li>2400</li>
+<li>4800</li>
+<li>9600</li>
+<li>19200</li>
+<li>38400</li>
+<li>115200</li>
+</ul>
+</div>
+<div class="section" id="setting-time-using-ntp">
+<span id="index-3"></span><h2>Setting Time Using NTP<a class="headerlink" href="#setting-time-using-ntp" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">ntpd</span></tt> daemon running on the switch implements the NTP protocol. It
+synchronizes the system time with time servers listed in <tt class="docutils literal"><span class="pre">/etc/ntp.conf</span></tt>. It
+is started at boot by default. See manpage ntpd(8) for <tt class="docutils literal"><span class="pre">ntpd</span></tt> details.</p>
+<p>By default, <tt class="docutils literal"><span class="pre">/etc/ntp.conf</span></tt> contains some default time servers. Edit
+<tt class="docutils literal"><span class="pre">/etc/ntp.conf</span></tt> to add or update time server information. See manpage
+ntp.conf(5) for details on configuring <tt class="docutils literal"><span class="pre">ntpd</span></tt> using <tt class="docutils literal"><span class="pre">ntp.conf</span></tt>.</p>
+<p>To set the initial date and time via NTP before starting the <tt class="docutils literal"><span class="pre">ntpd</span></tt> daemon,
+use <tt class="docutils literal"><span class="pre">ntpd</span> <span class="pre">-q</span></tt> (This is same as <tt class="docutils literal"><span class="pre">ntpdate</span></tt>, which is to be retired and not
+available).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><tt class="docutils literal"><span class="pre">ntpd</span> <span class="pre">-q</span></tt> can hang if the time servers are not reachable.</p>
+</div>
+<p>To verify that <tt class="docutils literal"><span class="pre">ntpd</span></tt> is running on the system:</p>
+<div class="highlight-python"><pre>root@switch:~# ps -ef | grep ntp
+ntp       4074     1  0 Jun20 ?        00:00:33 /usr/sbin/ntpd -p /var/run/ntpd.pid -g -u 101:102</pre>
+</div>
+</div>
+<div class="section" id="monitoring-interfaces-using-ethtool">
+<span id="index-4"></span><h2>Monitoring Interfaces Using ethtool<a class="headerlink" href="#monitoring-interfaces-using-ethtool" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">ethtool</span></tt> command enables you to query or control the network driver and
+hardware settings. It takes the device name (like swp1) as an argument. When the
+device name is the only argument to <tt class="docutils literal"><span class="pre">ethtool</span></tt>, it prints the current settings
+of the network device. See manpage ethtool(8) for details. Not all options are
+currently supported on switch port interfaces.</p>
+<p>To check the status of an interface using <tt class="docutils literal"><span class="pre">ethtool</span></tt>:</p>
+<div class="highlight-python"><pre>root@switch:~# ethtool swp1
+Settings for swp1:
+        Supported ports: [ FIBRE ]
+        Supported link modes:   1000baseT/Full
+                                10000baseT/Full
+        Supported pause frame use: No
+        Supports auto-negotiation: No
+        Advertised link modes:  1000baseT/Full
+        Advertised pause frame use: No
+        Advertised auto-negotiation: No
+        Speed: 10000Mb/s
+        Duplex: Full
+        Port: FIBRE
+        PHYAD: 0
+        Transceiver: external
+        Auto-negotiation: off
+        Current message level: 0x00000000 (0)
+
+        Link detected: yes</pre>
+</div>
+<p>To query interface statistics:</p>
+<div class="highlight-python"><pre>root@switch:~# ethtool -S swp1
+NIC statistics:
+        HwIfInOctets: 1435339
+        HwIfInUcastPkts: 11795
+        HwIfInBcastPkts: 3
+        HwIfInMcastPkts: 4578
+        HwIfOutOctets: 14866246
+        HwIfOutUcastPkts: 11791
+        HwIfOutMcastPkts: 136493
+        HwIfOutBcastPkts: 0
+        HwIfInDiscards: 0
+        HwIfInL3Drops: 0
+        HwIfInBufferDrops: 0
+        HwIfInAclDrops: 28
+        HwIfInDot3LengthErrors: 0
+        HwIfInErrors: 0
+        SoftInErrors: 0
+        SoftInDrops: 0
+        SoftInFrameErrors: 0
+        HwIfOutDiscards: 0
+        HwIfOutErrors: 0
+        HwIfOutQDrops: 0
+        HwIfOutNonQDrops: 0
+        SoftOutErrors: 0
+        SoftOutDrops: 0
+        SoftOutTxFifoFull: 0
+        HwIfOutQLen: 0</pre>
+</div>
+</div>
+<div class="section" id="monitoring-switch-port-interfaces-using-cl-sfputil">
+<span id="sfputil"></span><span id="index-5"></span><h2>Monitoring Switch Port Interfaces Using cl-sfputil<a class="headerlink" href="#monitoring-switch-port-interfaces-using-cl-sfputil" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">cl-sfputil</span></tt> command provides information about switch ports. It shows
+connector information, vendor data, and more. It can output monitoring data
+(use the <tt class="docutils literal"><span class="pre">-d</span></tt> option) to help you debug issues with these ports:</p>
+<div class="highlight-python"><pre>root@switch:~# cl-sfputil -p swp1
+swp1: SFP detected
+    Connector : CopperPigtail
+        EncodingCodes : Unspecified
+    ExtIdentOfTypeOfTransceiver : GBIC/SFP defined by twowire interface ID
+        LengthCable(UnitsOfm) : 1
+    NominalSignallingRate(UnitsOf100Mbd) : 103
+        RateIdentifier : Unspecified
+    ReceivedPowerMeasurementType : OMA
+        TransceiverCodes :
+                SFP+CableTechnology : Passive Cable
+    TypeOfTransceiver : SFP or SFP Plus
+        VendorDataCode(yymmdd) : 110830
+    VendorName : Amphenol
+        VendorOUI : Amp
+    VendorPN : 571540001
+        VendorRev : M
+    VendorSN : APF11350017C4V</pre>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Do not use <tt class="docutils literal"><span class="pre">ethtool</span></tt> to monitor switch ports; always use
+<tt class="docutils literal"><span class="pre">cl-sfputil</span></tt>. However, <tt class="docutils literal"><span class="pre">ethtool</span></tt> is useful for configuring switch ports.
+See <a class="reference internal" href="../datapath/ports_conf.html#ethtool"><em>Setting Port Speed, Duplexing, and Auto-negotiation</em></a> for more information.</p>
+</div>
+</div>
+<div class="section" id="diagnostics-using-cl-support">
+<span id="index-6"></span><h2>Diagnostics Using cl-support<a class="headerlink" href="#diagnostics-using-cl-support" title="Permalink to this headline">¶</a></h2>
+<p>You can use <tt class="docutils literal"><span class="pre">cl-support</span></tt> to generate a single export file that contains
+various details and the configuration from a switch. This is useful for remote
+debugging and troubleshooting.</p>
+<p>You should run <tt class="docutils literal"><span class="pre">cl-support</span></tt> before you submit a support request to Cumulus
+Networks as this file helps in the investigation of issues:</p>
+<div class="highlight-python"><pre>root@switch:~#  cl-support -h
+Usage: cl-support [-h] [reason]...
+Args:
+[reason]: Optional reason to give for invoking cl-support.
+         Saved into tarball's reason.txt file.
+Options:
+-h: Print this usage statement</pre>
+</div>
+<p>Example output:</p>
+<div class="highlight-python"><pre>root@switch:~#  ls /var/support
+cl_support_20130806_032720.tar.xz</pre>
+</div>
+<p>The directory structure is compressed using LZMA2 compression and can be
+extracted using the <tt class="docutils literal"><span class="pre">unxz</span></tt> command:</p>
+<div class="highlight-python"><pre>root@switch:~#  cd /var/support
+root@switch:~#  unxz cl_support_20130729_140040.tar.xz
+root@switch:~#  tar xf cl_support_20130729_140040.tar
+root@switch:~#  ls -l cl_support_20130729_140040/
+
+-rwxr-xr-x  1 root root 7724 Jul 29 14:00 cl-support
+-rw-r--r--  1 root root   52 Jul 29 14:00 cmdline.args
+drwxr-xr-x  2 root root 4096 Jul 29 14:00 core
+drwxr-xr-x 64 root root 4096 Jul 29 13:51 etc
+drwxr-xr-x  4 root root 4096 Jul 29 14:00 proc
+drwxr-xr-x  2 root root 4096 Jul 29 14:01 support
+drwxr-xr-x  3 root root 4096 Jul 29 14:00 sys
+drwxr-xr-x  3 root root 4096 Aug  8 15:22 var</pre>
+</div>
+<p>The directory contains the following elements:</p>
+<table border="1" class="docutils">
+<caption>cl-support Contents</caption>
+<colgroup>
+<col width="15%" />
+<col width="85%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Directory</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>core</td>
+<td>Contains the core files generated from Cumulus Linux HAL process, <tt class="docutils literal"><span class="pre">switchd</span></tt>.</td>
+</tr>
+<tr class="row-odd"><td>etc</td>
+<td>Is a replica of the switch&#8217;s /etc directory. /etc contains all the general Linux configuration files, as well as configurations for the system&#8217;s network interfaces, <tt class="docutils literal"><span class="pre">quagga</span></tt>, <tt class="docutils literal"><span class="pre">monit</span></tt>, and other packages.</td>
+</tr>
+<tr class="row-even"><td>log</td>
+<td>Is a replica of the switch&#8217;s /var/log directory. Most Cumulus Linux log files are located in this directory. Notable log files include switchd.log, daemon.log, quagga log files, and syslog. For more information, read this <a class="reference external" href="https://support.cumulusnetworks.com/entries/24125147-Relevant-Log-Files-in-Cumulus-Linux">knowledge base article</a>.</td>
+</tr>
+<tr class="row-odd"><td>proc</td>
+<td>Is a replica of the switch&#8217;s /proc directory. In Linux, /proc contains runtime system information (like system memory, devices mounted, and hardware configuration). These files are not actual files but the current state of the system.</td>
+</tr>
+<tr class="row-even"><td>support</td>
+<td>Is a set of files containing further system information, which is obtained by <tt class="docutils literal"><span class="pre">cl-support</span></tt> running commands such as <tt class="docutils literal"><span class="pre">ps-aux</span></tt>, <tt class="docutils literal"><span class="pre">netstat</span> <span class="pre">-i</span></tt>, and so forth &#8211; even the routing tables.</td>
+</tr>
+</tbody>
+</table>
+<p><tt class="docutils literal"><span class="pre">cl-support</span></tt>, when untarred, contains a reason.txt file. This file indicates what reason triggered it. When contacting Cumulus Networks technical support, please attach the <tt class="docutils literal"><span class="pre">cl-support</span></tt> file if possible.</p>
+</div>
+<div class="section" id="routing-diagnostics-using-cl-resource-query">
+<span id="index-7"></span><h2>Routing Diagnostics Using cl-resource-query<a class="headerlink" href="#routing-diagnostics-using-cl-resource-query" title="Permalink to this headline">¶</a></h2>
+<p>You can use <tt class="docutils literal"><span class="pre">cl-resource-query</span></tt> to retrieve the number of L2 and L3 routes and
+ECMPs (equal-cost multi-path routes, see <a class="reference internal" href="../dynamic-routing-quagga/topology.html#ecmp"><em>Load Balancing</em></a>) that are in use. This is
+especially useful because Cumulus Linux syncs routes between the kernel and the
+switching silicon. If the required resource pools in hardware fill up, new
+kernel routes can cause existing routes to move from being fully allocated to
+being partially allocated.</p>
+<p>In order to avoid this, routes in the hardware should be monitored and kept
+below the ASIC limits. For example, on systems with Trident+, the limits are as
+follows:</p>
+<div class="highlight-python"><pre>routes: 16384 &lt;&lt;&lt;&lt; if all routes are ipv4
+long mask routes 256 &lt;&lt;&lt;&lt; i.e., routes with a mask longer than the route mask limit
+route mask limit 64
+host_routes: 8192
+ecmp_nhs: 4044
+ecmp_nhs_per_route: 52</pre>
+</div>
+<p>This translates to about 77 routes with ECMP NHs, if every route has the maximum
+ECMP NHs.</p>
+<p>You can monitor this in Cumulus Linux with the <tt class="docutils literal"><span class="pre">cl-resource-query</span></tt> command:</p>
+<div class="highlight-python"><pre>root@switch:~# cl-resource-query
+hosts            :      1
+all routes       :     35
+        IP4 routes :     26
+    IP6 routes :      9
+nexthops         :      2
+ecmp_groups      :      0
+ecmp_nexthops    :      0
+mac entries      :      1 / 131072
+bpdu entries     :    452 /    512</pre>
+</div>
+</div>
+<div class="section" id="monitoring-system-hardware">
+<h2>Monitoring System Hardware<a class="headerlink" href="#monitoring-system-hardware" title="Permalink to this headline">¶</a></h2>
+<p>You monitor system hardware two ways:</p>
+<ul class="simple">
+<li>Using the <tt class="docutils literal"><span class="pre">sensors</span></tt> command</li>
+<li>Using <tt class="docutils literal"><span class="pre">smond</span></tt></li>
+</ul>
+<div class="section" id="monitoring-hardware-using-sensors">
+<h3>Monitoring Hardware Using sensors<a class="headerlink" href="#monitoring-hardware-using-sensors" title="Permalink to this headline">¶</a></h3>
+<p>The <tt class="docutils literal"><span class="pre">sensors</span></tt> command provides a method for monitoring the health of your
+switch hardware, such as power, temperature and fan speeds. This command
+executes <a class="reference external" href="http://lm-sensors.org">lm-sensors</a>.</p>
+<p>For example:</p>
+<div class="highlight-python"><pre>root@switch:/usr/cumulus/bin# sensors
+tmp75-i2c-6-48
+Adapter: i2c-1-mux (chan_id 0)
+temp1:        +39.0 C  (high = +75.0 C, hyst = +25.0 C)
+
+tmp75-i2c-6-49
+Adapter: i2c-1-mux (chan_id 0)
+temp1:        +35.5 C  (high = +75.0 C, hyst = +25.0 C)
+
+ltc4215-i2c-7-40
+Adapter: i2c-1-mux (chan_id 1)
+in1:         +11.87 V
+in2:         +11.98 V
+power1:       12.98 W
+curr1:        +1.09 A
+
+max6651-i2c-8-48
+Adapter: i2c-1-mux (chan_id 2)
+fan1:        13320 RPM  (div = 1)
+fan2:        13560 RPM</pre>
+</div>
+<div class="section" id="command-options">
+<h4>Command Options<a class="headerlink" href="#command-options" title="Permalink to this headline">¶</a></h4>
+<p>Usage: <tt class="docutils literal"><span class="pre">sensors</span> <span class="pre">[OPTION]...</span> <span class="pre">[CHIP]...</span></tt></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Option</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>-c, &#8211;config-file</td>
+<td>Specify a config file; use <tt class="docutils literal"><span class="pre">-</span></tt> after <tt class="docutils literal"><span class="pre">-c</span></tt> to read the config file from stdin; by default, <tt class="docutils literal"><span class="pre">sensors</span></tt> references the configuration file in <tt class="docutils literal"><span class="pre">/etc/sensors.d/</span></tt></td>
+</tr>
+<tr class="row-odd"><td>-s, &#8211;set</td>
+<td>Executes set statements in the config file (root only); <tt class="docutils literal"><span class="pre">sensors</span> <span class="pre">-s</span></tt> is run once at boot time and applies all the settings to the boot drivers</td>
+</tr>
+<tr class="row-even"><td>-f, &#8211;fahrenheit</td>
+<td>Show temperatures in degrees Fahrenheit</td>
+</tr>
+<tr class="row-odd"><td>-A, &#8211;no-adapter</td>
+<td>Do not show the adapter for each chip</td>
+</tr>
+<tr class="row-even"><td>&#8211;bus-list</td>
+<td>Generate bus statements for <tt class="docutils literal"><span class="pre">sensors.conf</span></tt></td>
+</tr>
+</tbody>
+</table>
+<p>If <tt class="docutils literal"><span class="pre">[CHIP]</span></tt> is not specified in the command, all chip info will be printed.
+Example chip names include:</p>
+<ul class="simple">
+<li>lm78-i2c-0-2d    *-i2c-0-2d</li>
+<li>lm78-i2c-0-*    *-i2c-0-*</li>
+<li>lm78-i2c-*-2d    *-i2c-*-2d</li>
+<li>lm78-i2c-*-*    *-i2c-*-*</li>
+<li>lm78-isa-0290    *-isa-0290</li>
+<li>lm78-isa-*    *-isa-*</li>
+<li>lm78-*</li>
+</ul>
+</div>
+</div>
+<div class="section" id="monitoring-system-units-using-smond">
+<h3>Monitoring System Units Using smond<a class="headerlink" href="#monitoring-system-units-using-smond" title="Permalink to this headline">¶</a></h3>
+<p>The <tt class="docutils literal"><span class="pre">smond</span></tt> daemon monitors system units like power supply and fan, updates
+their corresponding LEDs, and logs the change in the state. Changes in system
+unit state are detected via the <tt class="docutils literal"><span class="pre">cpld</span></tt> registers. <tt class="docutils literal"><span class="pre">smond</span></tt> utilizes these
+registers to read all sources, which impacts the health of the system unit,
+determines the unit&#8217;s health, and updates the system LEDs.</p>
+<p>When <tt class="docutils literal"><span class="pre">smond</span></tt> starts, it loads the configuration specified in
+<tt class="docutils literal"><span class="pre">/etc/cumulus/sysledcontrol.conf</span></tt>. To start the daemon and specify a different
+configuration file, use the <tt class="docutils literal"><span class="pre">-f</span></tt> option and provide the path to that file.
+Each system unit has a separate section in the configuration which consists of
+unit-specific settings. The file also contains a default section which contains
+common parameters, like the polling interval for smond for all system units:</p>
+<div class="highlight-python"><pre>root@switch:~# cat /etc/cumulus/sysledcontrol.conf
+########################################################################
+# sysledcontrol.conf
+#
+# Configure system LED controls.
+########################################################################
+
+[default]
+# Settings from [default] are inherited by the [power], [fan], and [system]
+# sections.
+#
+# led_update_interval
+#   Sets the LED update interval in seconds (default: 5 s, minimum: 5 s)
+led_update_interval = 5
+
+[psu_status]
+# Power Supply
+#
+# count
+#   Sets the number of expected PSUs.  Installing fewer than 'count' PSUs will
+#   be regarded as a fault.
+count = 2
+
+[fan]
+# Fans
+#
+# defaults
+
+[system]
+# System Software
+#
+# defaults</pre>
+</div>
+<p>For more information, read <tt class="docutils literal"><span class="pre">man</span> <span class="pre">smond</span></tt>.</p>
+</div>
+<div class="section" id="monitoring-switch-hardware-using-snmp">
+<span id="index-8"></span><h3>Monitoring Switch Hardware Using SNMP<a class="headerlink" href="#monitoring-switch-hardware-using-snmp" title="Permalink to this headline">¶</a></h3>
+<p>Cumulus Linux ships with Net-SNMP v5.4.3. You can use SNMP to manage various
+components on the switch. The supported MIBs include many publicly used MIBs as
+well as some MIBs developed by Cumulus Networks for Cumulus Linux:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://net-snmp.sourceforge.net/docs/mibs/snmpFrameworkMIB.html">SNMP-FRAMEWORK</a></li>
+<li><a class="reference external" href="http://net-snmp.sourceforge.net/docs/mibs/snmpMPDMIB.html">SNMP-MPD</a></li>
+<li><a class="reference external" href="http://net-snmp.sourceforge.net/docs/mibs/snmpUsmMIB.html">SNMP-USER-BASED-SM</a></li>
+<li><a class="reference external" href="http://net-snmp.sourceforge.net/docs/mibs/snmpVacmMIB.html">SNMP-VIEW-BASED-ACM</a></li>
+<li><a class="reference external" href="http://net-snmp.sourceforge.net/docs/mibs/snmpMIB.html">SNMPv2</a></li>
+<li><a class="reference external" href="http://net-snmp.sourceforge.net/docs/mibs/ip.html">IP (includes ICMP)</a></li>
+<li><a class="reference external" href="http://net-snmp.sourceforge.net/docs/mibs/tcp.html">TCP</a></li>
+<li><a class="reference external" href="http://net-snmp.sourceforge.net/docs/mibs/udp.html">UDP</a></li>
+<li><a class="reference external" href="http://net-snmp.sourceforge.net/docs/mibs/interfaces.html">IF-MIB</a></li>
+<li><a class="reference external" href="http://www.mibdepot.com/cgi-bin/getmib3.cgi?i=1&amp;n=LLDP-MIB&amp;r=cisco&amp;f=LLDP-MIB-V1SMI.my&amp;v=v1&amp;t=tree">LLDP</a></li>
+<li><a class="reference external" href="http://support.ipmonitor.com/mibs_byoidtree.aspx?oid=.1.3.6.1.4.1.2021.13.16">LM-SENSORS</a></li>
+<li>Resource utilization: Cumulus Linux includes its own resource utilization MIB,
+which is similar to using <tt class="docutils literal"><span class="pre">cl-resource-query</span></tt> described above. It monitors
+L3 entries by host, route, nexthops, ECMP groups and L2 MAC/BDPU entries. The
+MIB is defined in <tt class="docutils literal"><span class="pre">/usr/share/snmp/Cumulus-Resource-Query-MIB.txt</span></tt>.</li>
+<li>Discard counters: Cumulus Linux also includes its own counters MIB, defined in
+<tt class="docutils literal"><span class="pre">/usr/share/snmp/Cumulus-Counters-MIB.txt</span></tt>.</li>
+<li>The overall Cumulus Linux MIB is defined in
+<tt class="docutils literal"><span class="pre">/usr/share/snmp/Cumulus-Snmp-MIB.txt</span></tt>.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The Quagga and Zebra routes MIB is disabled in Cumulus Linux.</p>
+</div>
+</div>
+</div>
+<div class="section" id="configuration-files">
+<h2>Configuration Files<a class="headerlink" href="#configuration-files" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>/etc/cumulus/sysledcontrol.conf</li>
+<li>/etc/default/ntp - ntpd init.d configuration variables</li>
+<li>/etc/ntp.conf - default NTP configuration file</li>
+<li>/etc/init.d/ntp - ntpd init script</li>
+<li>/etc/sensors.d/&lt;switch&gt;.conf - sensor configuration file (do <strong>not</strong> edit it!)</li>
+</ul>
+</div>
+<div class="section" id="useful-links">
+<h2>Useful Links<a class="headerlink" href="#useful-links" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="http://www.debian.org/doc/manuals/system-administrator/ch-sysadmin-time.html">Debian System Administrator&#8217;s Manual &#8211; Time</a></li>
+<li><a class="reference external" href="http://lm-sensors.org">http://lm-sensors.org</a></li>
+<li><a class="reference external" href="http://net-snmp.sourceforge.net/docs/mibs">http://net-snmp.sourceforge.net/docs/mibs</a></li>
+<li><a class="reference external" href="http://www.ntp.org">http://www.ntp.org</a></li>
+<li><a class="reference external" href="http://en.wikipedia.org/wiki/Network_Time_Protocol">http://en.wikipedia.org/wiki/Network_Time_Protocol</a></li>
+<li><a class="reference external" href="http://wiki.debian.org/NTP">http://wiki.debian.org/NTP</a></li>
+</ul>
+</div>
+</div>
+
+
+                </div>
+                <p>&nbsp;</p>
+    <div class="related">
+        <ul>
+            <li>
+                <a href="../../genindex.html" title="General Index"
+                >index</a></li>
+            <li>
+                <a href="../network-diags/index.html" title="Network Troubleshooting"
+                >next</a></li>
+            <li>
+                <a href="../netfilter/index.html" title="Netfilter (ACLs)"
+                >previous</a></li> 
+        </ul>
+    </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+        <div id="footer">
+            <div class="container">
+                <div class="span3 push">
+                    <h6>Rethink Networking</h6>
+                    <a href="/rethink_network/">Read about networking<br />for the modern datacenter</a>
+                    <h6>News &amp; Events</h6>
+                    <ul>
+                        <li><a href="/analyst_coverage/">Analyst Coverage</a></li>
+                        <li><a href="/events/">Events</a></li>
+                        <li><a href="/media_coverage/">Media Coverage</a></li>
+                        <li><a href="/press_releases/">Press Releases</a></li>
+                        <li><a href="/videos/">Videos</a></li>
+                        <li><a href="/blog/">Blog</a></li>
+                    </ul>
+                    <a href="#wrap" class="top"></a>
+                </div>
+                <div class="span3 push">
+                    <h6>Product</h6>
+                    <ul>
+                        <li><a href="/product/overview/">Overview</a></li>
+                        <li><a href="/product/architecture/">Architecture</a></li>
+                        <li><a href="/product/evaluate/dispatcher/">Evaluate</a></li>
+                        <li><a href="/product/open-approach/">Open Approach</a></li>
+                        <li><a href="/product/customers/">Customers</a></li>
+                    </ul>
+                    <h6>Support</h6>
+                    <ul>
+                        <li><a href="/support/overview/">Overview</a></li>
+                        <li><a href="/support/faq/">FAQs</a></li>
+                        <li><a href="/support/hcl/">Hardware Compatibility List</a></li>
+                        <li><a href="/docs/" class="lock">Technical Documentation <span></span></a></li>
+                        <li><a href="/support/" class="lock">Online Support Portal <span></span></a></li>
+                        <li><a href="/support/my_support_requests/" class="lock">My Support Requests <span></span></a></li>
+                        <li><a href="/support/new_support_request/" class="lock">Submit a Request <span></span></a></li>
+                    </ul>
+                </div>
+                <div class="span3 push pc">
+                    <span class="left">
+                    <h6>Partners</h6>
+                    <ul>
+                        <li><a href="/partners/become-a-partner/">Become a Partner</a></li>
+                        <li><a href="/partners/technology-partners/">Technology Partners</a></li>
+                        <li><a href="/partners/resellers-and-distributors/">Resellers &amp; Distributors</a></li>
+                    
+                    </ul>
+                    </span>
+                    <span class="right">
+                    <h6>Company</h6>
+                    <ul>
+                        <li><a href="/company/about/">About Cumulus</a></li>
+                        <li><a href="/careers/">Careers</a></li>
+                        <li><a href="/team/">Our Team</a></li>
+                        <li><a href="/investors/">Investors</a></li>
+                        <li><a href="/contact/">Contact</a></li>
+                    </ul>
+                    </span>
+                </div>
+                <div class="span3 text-right">
+                    <a href="/" class="logo_bottom"></a>
+                    <div class="foot_social">
+                        <a href="https://www.facebook.com/CumulusNetworks" class="foot_fb" target="_blank"></a>
+                        <a href="https://twitter.com/CumulusNetworks" class="foot_tw" target="_blank"></a>
+                        <a href="https://plus.google.com/b/113662912213553593675/" class="foot_gplus" target="_blank"></a>
+                        <a href="http://www.linkedin.com/company/cumulus-networks" class="foot_li" target="_blank"></a>
+                    </div>
+                    <div class="legal"><a href="/privacy/">Privacy Policy</a><br /><a href="/legal/">Terms Of Service</a><br /><a href="/sitemap.xml">Sitemap</a><br /><br /><div>&copy; 2013 Cumulus Networks<br />Site by <a href="http://unomena.com/" target="_blank">Unomena</a></div></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div><!--/Footer-->
+
+</div>
+</body>
+</html>
