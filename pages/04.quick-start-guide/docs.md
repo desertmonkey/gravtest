@@ -97,7 +97,7 @@ Typically, switches ship from the manufacturer with a mating DB9 serial cable. S
 
 ### Wired Ethernet Management
 
-Switches supported in Cumulus Linux always contain at least one dedicated Ethernet management port, which is named eth0. This interface is geared specifically for out-of-band management use. The management interface uses DHCPv4 for addressing by default. You can set a static IP address with the Network Command Line Utility (NCLU).
+Switches supported in Cumulus Linux always contain at least one dedicated Ethernet management port, which is named eth0. This interface is geared specifically for out-of-band management use. The management interface uses DHCPv4 for addressing by default. You can set a static IP address with the [Network Command Line Utility (NCLU)](../system-configuration/network-command-line-utility-nclu).
 
 #### Example IP Configuration
 
