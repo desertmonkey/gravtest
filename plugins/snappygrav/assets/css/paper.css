@@ -43,5 +43,16 @@
         background: #f1f9f1;
         color: #3d8b3d;
     }
+    
+    
+    code pre {
+	    background: #EAEDF2;
+   	    color: #36424a;
+     	padding: .2rem .4rem;
+        border-radius: 3px;
+    }
+
+
+
 
 }
