@@ -1,0 +1,422 @@
+name: SnappyGrav
+version: 1.8.0
+description: Save a page, branch or all website in PDF format
+icon: file-pdf-o
+author:
+  name: Severo Iuliano
+  email: severoiuliano@gmail.com
+  url: http://iusvar.alwaysdata.net/grav/
+homepage: https://github.com/iusvar/grav-plugin-snappygrav
+demo: http://iusvar.alwaysdata.net/grav/
+keywords: grav, plugin, snappygrav
+bugs: https://github.com/iusvar/grav-plugin-snappygrav/issues
+readme: https://github.com/iusvar/grav-plugin-snappygrav/blob/master/README.md
+license: MIT
+
+form:
+  validation: strict
+  fields:
+    Basics:
+      type: section
+      title: PLUGIN_SNAPPYGRAV.BASICS
+      underline: false
+      
+    enabled:
+      type: toggle
+      label: PLUGIN_ADMIN.PLUGIN_STATUS
+      highlight: 1
+      default: 0
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+
+    built_in_css:
+      type: toggle
+      label: PLUGIN_SNAPPYGRAV.USE_BUILT_IN_CSS
+      highlight: 1
+      default: 0
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+
+    btn_plugin:
+      type: text
+      label: PLUGIN_SNAPPYGRAV.BTN_PLUGIN
+      size: small
+      placeholder: "eg. Export"
+
+    icn_plugin:
+      type: text
+      label: PLUGIN_SNAPPYGRAV.ICN_PLUGIN
+      size: small
+      placeholder: "eg. fa-download"
+
+    default_type:
+      type: select
+      label: PLUGIN_SNAPPYGRAV.DEFAULT_TYPE
+      size: small
+      default: pdf
+      options:
+        azw3: PLUGIN_SNAPPYGRAV.AZW3
+        epub: PLUGIN_SNAPPYGRAV.EPUB
+        pdf: PLUGIN_SNAPPYGRAV.PDF
+
+    slug_blog:
+      type: text
+      size: large
+      label: PLUGIN_SNAPPYGRAV.SLUG_BLOG
+      help: PLUGIN_SNAPPYGRAV.SLUG_BLOG_HELP
+      validate:
+        type: string
+
+    set_time_limit:
+      type: text
+      size: x-small
+      label: PLUGIN_SNAPPYGRAV.SET_TIME_LIMIT
+      help: PLUGIN_SNAPPYGRAV.SET_TIME_LIMIT_HELP
+      append: sec
+      default: 60
+      validate:
+        type: number
+
+    wkhtmltopdf:
+      type: section
+      title: PLUGIN_SNAPPYGRAV.WKHTMLTOPDF
+      underline: false
+      
+    wk_absolute_pos:
+      type: toggle
+      label: PLUGIN_SNAPPYGRAV.WKHTMLTOPDF_ABSOLUTE_POS
+      default: 0
+      highlight: 0
+      options:
+        0: PLUGIN_SNAPPYGRAV.WKHTMLTOPDF_PLUGIN
+        1: PLUGIN_SNAPPYGRAV.WKHTMLTOPDF_OS
+      validate:
+        type: bool
+
+    wk_spacer:
+      type: spacer
+      text: PLUGIN_SNAPPYGRAV.WKHTMLTOPDF_PATH_RULES
+           
+    wk_path:
+      type: text
+      size: large
+      label: PLUGIN_SNAPPYGRAV.WKHTMLTOPDF_PATH
+      help: PLUGIN_SNAPPYGRAV.WKHTMLTOPDF_PATH_HELP
+      validate:
+        type: string
+      placeholder: "eg. vendor/h4cc/wkhtmltopdf-i386/bin/wkhtmltopdf-i386"
+
+    preface:
+      type: section
+      title: PLUGIN_SNAPPYGRAV.PREFACE
+      underline: false
+
+    preface_title:
+      type: toggle
+      label: PLUGIN_SNAPPYGRAV.PREFACE_TITLE
+      help: PLUGIN_SNAPPYGRAV.PREFACE_TITLE_HELP
+      highlight: 0
+      default: 0
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+
+    preface_author:
+      type: toggle
+      label: PLUGIN_SNAPPYGRAV.PREFACE_AUTHOR
+      help: PLUGIN_SNAPPYGRAV.PREFACE_AUTHOR_HELP
+      highlight: 0
+      default: 0
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+
+    preface_date:
+      type: toggle
+      label: PLUGIN_SNAPPYGRAV.PREFACE_DATE
+      help: PLUGIN_SNAPPYGRAV.PREFACE_DATE_HELP
+      highlight: 0
+      default: 0
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+
+    date_format:
+      type: select
+      label: PLUGIN_SNAPPYGRAV.DATE_FORMAT
+      size: small
+      default: short
+      options:
+        short: PLUGIN_SNAPPYGRAV.SHORT
+        long: PLUGIN_SNAPPYGRAV.LONG
+
+    breadcrumbs:
+      type: section
+      title: PLUGIN_SNAPPYGRAV.BREADCRUMBS
+      underline: false
+
+    breadcrumbs_enabled:
+      type: toggle
+      label: PLUGIN_SNAPPYGRAV.BREADCRUMBS_ENABLED
+      help: PLUGIN_SNAPPYGRAV.BREADCRUMBS_ENABLED_HELP
+      highlight: 1
+      default: 0
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+
+    breadcrumbs_link:
+      type: toggle
+      label: PLUGIN_SNAPPYGRAV.BREADCRUMBS_LINK
+      help: PLUGIN_SNAPPYGRAV.BREADCRUMBS_LINK_HELP
+      highlight: 1
+      default: 0
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+
+    branch:
+      type: section
+      title: PLUGIN_SNAPPYGRAV.BRANCH
+      underline: false
+
+    branch_enabled:
+      type: toggle
+      label: PLUGIN_SNAPPYGRAV.BRANCH_ENABLED
+      help: PLUGIN_SNAPPYGRAV.BRANCH_ENABLED_HELP
+      highlight: 0
+      default: 0
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+
+    page_break:
+      type: toggle
+      label: PLUGIN_SNAPPYGRAV.PAGE_BREAK
+      help: PLUGIN_SNAPPYGRAV.PAGE_BREAK_HELP
+      highlight: 0
+      default: 0
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+
+    jquery_confirm:
+      type: section
+      title: PLUGIN_SNAPPYGRAV.JQUERY_CONFIRM
+      underline: false
+
+    theme:
+      type: select
+      label: PLUGIN_SNAPPYGRAV.THEME
+      help: EXPORT.THEME_HELP
+      size: small
+      default: modern
+      options:
+        light: PLUGIN_SNAPPYGRAV.LIGHT
+        dark: PLUGIN_SNAPPYGRAV.DARK
+        modern: PLUGIN_SNAPPYGRAV.MODERN
+        supervan: PLUGIN_SNAPPYGRAV.SUPERVAN
+        material: PLUGIN_SNAPPYGRAV.MATERIAL
+        bootstrap: PLUGIN_SNAPPYGRAV.BOOTSTRAP
+
+    btn_export:
+      type: text
+      label: PLUGIN_SNAPPYGRAV.BTN_EXPORT
+      size: small
+      placeholder: "eg. Create"
+
+    btn_cancel:
+      type: text
+      label: PLUGIN_SNAPPYGRAV.BTN_CANCEL
+      size: small
+      placeholder: "eg. Cancel"
+
+    btn_export_color:
+      type: select
+      label: PLUGIN_SNAPPYGRAV.BTN_EXPORT_COLOR
+      size: small
+      default: green
+      options:
+        default: PLUGIN_SNAPPYGRAV.DEFAULT
+        blue: PLUGIN_SNAPPYGRAV.BLUE
+        green: PLUGIN_SNAPPYGRAV.GREEN
+        red: PLUGIN_SNAPPYGRAV.RED
+        orange: PLUGIN_SNAPPYGRAV.ORANGE
+        purple: PLUGIN_SNAPPYGRAV.PURPLE
+        dark: PLUGIN_SNAPPYGRAV.DARK
+        gray: PLUGIN_SNAPPYGRAV.GRAY
+      help: EXPORT.BTN_EXPORT_HELP
+
+    btn_cancel_color:
+      type: select
+      label: PLUGIN_SNAPPYGRAV.BTN_CANCEL_COLOR
+      size: small
+      default: green
+      options:
+        default: PLUGIN_SNAPPYGRAV.DEFAULT
+        blue: PLUGIN_SNAPPYGRAV.BLUE
+        green: PLUGIN_SNAPPYGRAV.GREEN
+        red: PLUGIN_SNAPPYGRAV.RED
+        orange: PLUGIN_SNAPPYGRAV.ORANGE
+        purple: PLUGIN_SNAPPYGRAV.PURPLE
+        dark: PLUGIN_SNAPPYGRAV.DARK
+        gray: PLUGIN_SNAPPYGRAV.GRAY
+      help: EXPORT.BTN_EXPORT_HELP
+
+    pdf:
+      type: section
+      title: Pdf
+      underline: false
+
+    grayscale:
+      type: toggle
+      label: PLUGIN_SNAPPYGRAV.MONOCHROME_PRINTOUT
+      help: PLUGIN_SNAPPYGRAV.MONOCHROME_PRINTOUT_HELP
+      highlight: 1
+      default: 0
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+
+    margin_bottom:
+      type: text
+      size: x-small
+      label: PLUGIN_SNAPPYGRAV.BOTTOM_MARGIN
+      help: PLUGIN_SNAPPYGRAV.BOTTOM_MARGIN_HELP
+      append: mm
+      default: 10
+      validate:
+        type: number
+
+    margin_left:
+      type: text
+      size: x-small
+      label: PLUGIN_SNAPPYGRAV.LEFT_MARGIN
+      help: PLUGIN_SNAPPYGRAV.LEFT_MARGIN_HELP
+      append: mm
+      default: 10
+      validate:
+        type: number
+
+    margin_right:
+      type: text
+      size: x-small
+      label: PLUGIN_SNAPPYGRAV.RIGHT_MARGIN
+      help: PLUGIN_SNAPPYGRAV.RIGHT_MARGIN_HELP
+      append: mm
+      default: 10
+      validate:
+        type: number
+
+    margin_top:
+      type: text
+      size: x-small
+      label: PLUGIN_SNAPPYGRAV.TOP_MARGIN
+      help: PLUGIN_SNAPPYGRAV.TOP_MARGIN_HELP
+      append: mm
+      default: 10
+      validate:
+        type: number
+
+    orientation:
+      type: select
+      label: PLUGIN_SNAPPYGRAV.PAGE_ORIENTATION
+      size: small
+      default: portrait
+      options:
+        landscape: PLUGIN_SNAPPYGRAV.LANDSCAPE
+        portrait: PLUGIN_SNAPPYGRAV.PORTRAIT
+      help: PLUGIN_SNAPPYGRAV.PAGE_ORIENTATION_HELP
+
+    page_size:
+      type: select
+      label: PLUGIN_SNAPPYGRAV.PAGE_SIZE
+      size: small
+      default: a4
+      options:
+        a0: A0
+        a1: A1
+        a2: A2
+        a3: A3
+        a4: A4
+        a5: A5
+        a6: A6
+        a7: A7
+        a8: A8
+        a9: A9
+        b0: B0
+        b1: B1
+        b10: B10
+        b2: B2
+        b3: B3
+        b4: B4
+        b5: B5
+        b6: B6
+        b7: B7
+        b8: B8
+        b9: B9
+        c5e: C5E
+        comm10e: Comm10E
+        dle: DLE
+        executive: PLUGIN_SNAPPYGRAV.EXECUTIVE
+        folio: PLUGIN_SNAPPYGRAV.FOLIO
+        ledger: PLUGIN_SNAPPYGRAV.LEDGER
+        legal: PLUGIN_SNAPPYGRAV.LEGAL
+        letter: PLUGIN_SNAPPYGRAV.LETTER
+        tabloid: PLUGIN_SNAPPYGRAV.TABLOID
+      help: PLUGIN_SNAPPYGRAV.PAGE_SIZE_HELP
+        
+    title:
+      type: toggle
+      label: PLUGIN_SNAPPYGRAV.DOCUMENT_TITLE
+      help: PLUGIN_SNAPPYGRAV.DOCUMENT_TITLE_HELP
+      highlight: 1
+      default: 1
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+
+    zoom:
+      type: text
+      size: small
+      label: PLUGIN_SNAPPYGRAV.ZOOM_FACTOR
+      help: PLUGIN_SNAPPYGRAV.ZOOM_FACTOR_HELP
+      default: 1
+      validate:
+        type: number
+
+    print_media_type:
+      type: toggle
+      label: PLUGIN_SNAPPYGRAV.PRINT_MEDIA_TYPE
+      help: PLUGIN_SNAPPYGRAV.PRINT_MEDIA_TYPE_HELP
+      highlight: 1
+      default: 1
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
