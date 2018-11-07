@@ -15,9 +15,9 @@
     </div>
     <div class="card-body">
         {% if page.summary != page.content %}
-            {{ page.summary|raw }}
+            {{ page.summary }}
         {% else %}
-            {{ page.content|raw }}
+            {{ page.content }}
         {% endif %}
     </div>
     <div class="card-footer">

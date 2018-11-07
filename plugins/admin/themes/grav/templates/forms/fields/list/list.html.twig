@@ -77,7 +77,7 @@
                                 {% set childName = itemName -%}
                             {%- elseif childName starts with '.' -%}
                                 {% set childKey = childName|trim('.') %}
-                                {% set childValue = val|nested(childName) %}
+                                {% set childValue = val[childName[1:]] %}
                                 {% set childName = itemName ~ childName %}
                             {% else %}
                                 {% set childKey = childName %}

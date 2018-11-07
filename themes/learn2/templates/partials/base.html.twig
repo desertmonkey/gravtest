@@ -12,6 +12,14 @@
     <link rel="alternate" type="application/rss+xml" href="{{ base_url_absolute}}/feed:rss" title="RSS Feed" />
     <link rel="icon" type="image/png" href="{{ url('theme://images/favicon.png') }}">
 
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,600,700" type="text/css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css">
+<link rel="stylesheet" type="text/css" href="https://cloud.typography.com/7905356/6161172/css/fonts.css" />
+<link rel="stylesheet" href="https://cumulusnetworks.com/static/css/bs-grid.min.css" type="text/css">
+<link rel="stylesheet" href="https://cumulusnetworks.com/static/css/footer.min.css" type="text/css">
+
+
+
     {% block stylesheets %}
         {% do assets.addCss('theme://css-compiled/nucleus.css',102) %}
         {% do assets.addCss('theme://css-compiled/theme.css',101) %}
@@ -41,11 +49,13 @@
     {% endblock %}
 </head>
 <body class="searchbox-hidden {{ page.header.body_classes }}" data-url="{{ page.route }}">
+
+
     {% block sidebar %}
     <nav id="sidebar">
         <div id="header-wrapper">
             <div id="header">
-                <a id="logo" href="{{ theme_config.home_url ?: base_url_absolute }}">{% include 'partials/logo.html.twig' %}</a>
+                <a href="https://cumulusnetworks.com/"><img src="https://cumulusnetworks.com/static/images/shared/cumulus-networks-logo-white.svg" width="200px"></a>
                 {% include 'partials/search.html.twig' %}
             </div>
         </div>
@@ -54,8 +64,20 @@
     {% endblock %}
 
     {% block body %}
+
+
+
     <section id="body">
         <div id="overlay"></div>
+
+        	<div style="width:100%; float:right; display:inline; background:#00ad69;">
+				<ul style="margin:10px 0 0 0; padding:0; list-style:none; float:right;">
+					<li style="float:left; position:relative;"><a href="https://cumulusnetworks.com/downloads/" style="padding:3px 20px 10px 20px; color:#fff; line-height:26px;">Downloads</a></li>
+					<li style="float:left; position:relative;"><a href="https://forums.cumulusnetworks.com/" style="padding:3px 20px 10px 20px; border-left:1px solid #fff; color:#fff; line-height:26px;">Community</a></li>
+					<li style="float:left; position:relative;"><a href="https://support.cumulusnetworks.com/hc/en-us" style="padding:3px 20px 10px 20px; border-left:1px solid #fff; color:#fff; line-height:26px;">Knowledge Base &amp; Support</a></li>
+					<li style="float:left; position:relative;"><a href="https://cumulusnetworks.com/" style="padding:3px 20px 10px 20px; border-left:1px solid #fff; color:#fff; line-height:26px;">Back to Cumulus Networks</a></li>
+				</ul>
+	       	</div>
 
         <div class="padding highlightable">
             <a href="#" id="sidebar-toggle" data-sidebar-toggle><i class="fa fa-2x fa-bars"></i></a>
@@ -74,7 +96,9 @@
             </div>
             {% endif %}{% endblock %}
 
-            {% block content %}{% endblock %}
+            {% block content %}
+                {% include 'partials/comments.html.twig' with {'page': page} %}
+            {% endblock %}
 
             {% block footer %}
                 {% if  github_link_position == 'bottom' %}
@@ -82,9 +106,94 @@
                 {% endif %}
             {% endblock %}
 
+
         </div>
         {% block navigation %}{% endblock %}
+
     </section>
+
+    <footer>
+	<section class="footer__section footer__section--top">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-4 col-md-3">
+					<div class="footer__content">
+						<img src="https://cumulusnetworks.com/static/images/shared/cumulus-networks-logo-white.svg">
+						© <script type="text/javascript">document.write(new Date().getFullYear());</script> Cumulus Networks.<br>
+						Bringing web-scale networking to the enterprise cloud.<br><br>
+					</div>
+				</div>
+				<div class="col-sm-8 col-md-9">
+					<div class="row">
+						<div class="footer__col">
+							<h3 class="footer__nav footer__nav--header">Products</h3>
+							<ul class="footer__nav">
+								<li><a href="https://cumulusnetworks.com/products/cumulus-linux/">Cumulus Linux</a></li>
+								<li><a href="https://cumulusnetworks.com/products/netq/">NetQ</a></li>
+								<li><a href="https://cumulusnetworks.com/products/host-pack/">Host Pack</a></li>
+								<li><a href="https://cumulusnetworks.com/products/cumulus-express/">Cumulus Express</a></li>
+							</ul>
+						</div>
+						<div class="footer__col">
+							<h3 class="footer__nav footer__nav--header">Learn</h3>
+							<ul class="footer__nav">
+								<li><a href="https://cumulusnetworks.com/learn/web-scale-networking-education/">Going web-scale</a></li>
+								<li><a href="https://cumulusnetworks.com/learn/events/">Events</a></li>
+								<li><a href="https://cumulusnetworks.com/blog/">Blog</a></li>
+							</ul>
+						</div>
+						<div class="footer__col">
+							<h3 class="footer__nav footer__nav--header">About</h3>
+							<ul class="footer__nav">
+								<li><a href="https://cumulusnetworks.com/about/">Our story</a></li>
+								<li><a href="https://cumulusnetworks.com/about/careers/">Careers</a></li>
+								<li><a href="https://cumulusnetworks.com/about/media-coverage/">Media coverage</a></li>
+								<li><a href="//docs.cumulusnetworks.com/" target="_blank">Tech docs</a></li>
+								<li><a href="https://cumulusnetworks.com/community/">Community</a></li>
+							</ul>
+						</div>
+						<ul class="footer__nav footer__nav--hexagons">
+							<li>
+								<a href="//twitter.com/CumulusNetworks/" target="_blank"><img src="https://cumulusnetworks.com/static/images/icons/hexagon-twitter.png"></a>
+							</li>
+							<li>
+								<a href="//www.facebook.com/CumulusNetworks/" target="_blank"><img src="https://cumulusnetworks.com/static/images/icons/hexagon-facebook.png"></a>
+							</li>
+							<li>
+								<a href="//linkedin.com/company/cumulus-networks/" target="_blank"><img src="https://cumulusnetworks.com/static/images/icons/hexagon-linkedin.png"></a>
+							</li>
+							<li>
+								<a href="//vimeo.com/CumulusNetworks/" target="_blank"><img src="https://cumulusnetworks.com/static/images/icons/hexagon-vimeo.png"></a>
+							</li>
+							<li>
+								<a href="//www.github.com/cumulusnetworks/" target="_blank"><img src="https://cumulusnetworks.com/static/images/icons/hexagon-git.png"></a>
+							</li>
+							<li>
+								<a href="//slack.cumulusnetworks.com/" target="_blank"><img src="https://cumulusnetworks.com/static/images/icons/hexagon-slack.png"></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="footer__section footer__section--bottom">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<ul class="footer__nav">
+						<li><a href="https://cumulusnetworks.com/legal/trademarks/">Trademarks</a></li>
+						<li><a href="https://cumulusnetworks.com/legal/privacy/">Privacy</a></li>
+						<li><a href="https://cumulusnetworks.com/legal/">Terms of service</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+</footer>
+
+
+
     {% endblock %}
     {% block analytics %}
         {% if theme_config.google_analytics_code %}
