@@ -1,3 +1,20 @@
+# v2.7.3
+## 12/07/2018
+
+1. [](#new)
+    * Added a new `figure` shortcode [#51](https://github.com/getgrav/grav-plugin-shortcode-core/pull/51)
+1. [](#bugfix)
+    * Fix empty space at the end of a line [#54](https://github.com/getgrav/grav-plugin-shortcode-core/pull/54)
+
+# v2.7.2
+## 10/26/2018
+
+1. [](#new)
+    * Added a new `span` shortcode that supports `class` and `id` attributes
+1. [](#improved)
+    * Switched default parser to `regular`
+    * Using latest `dev-master` version which has a couple of key fixes
+
 # v2.7.1
 ## 03/14/2018
 
